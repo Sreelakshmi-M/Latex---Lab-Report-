@@ -1,0 +1,85 @@
+\documentclass[12pt,paper=a4,titlepage,footinclude=true,headinclude=true]{scrreprt}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[section]{placeins}
+\RequirePackage{fix-cm}
+\PassOptionsToPackage{eulerchapternumbers,listings,beramono,subfig}{classicthesis} 
+
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{listings}
+\definecolor{vgreen}{RGB}{104,180,104}
+\definecolor{vblue}{RGB}{49,49,255}
+\definecolor{vorange}{RGB}{255,143,102}
+\definecolor{OliveGreen}{rgb}{0.98,0.95,0.96}
+
+\lstdefinestyle{%Programming language-style}
+{
+    language=Programming language,           %this commands are needed only if you are providing any programming code in the report%
+    basicstyle=\small\ttfamily,
+    backgroundcolor=\color{OliveGreen},
+    keywordstyle=\color{vblue},
+    identifierstyle=\color{black},
+    commentstyle=\color{vgreen},
+    numbers=left,
+    numberstyle=\tiny\color{black},
+    numbersep=10pt,
+    tabsize=8,
+    moredelim=*[s][\colorIndex]{[}{]},
+    literate=*{:}{:}1
+}
+
+\makeatletter
+\newcommand*\@lbracket{[}
+\newcommand*\@rbracket{]}
+\newcommand*\@colon{:}
+\newcommand*\colorIndex{%
+    \edef\@temp{\the\lst@token}%
+    \ifx\@temp\@lbracket \color{black}%
+    \else\ifx\@temp\@rbracket \color{black}%
+    \else\ifx\@temp\@colon \color{black}%
+    \else \color{vorange}%
+    \fi\fi\fi
+}
+\makeatother
+
+\usepackage{trace}
+\usepackage[a4paper, portrait, margin=1.0 in ]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[CO,RE]{Subject code and name}
+\fancyfoot[CO,RE]{Department and college name}
+\rfoot{\thepage}
+\begin{document}
+\title{subj name\\ EXPERIMENT }
+\author{\ name\\ Reg No \\Batch\\ Subject Code :\\Dept:name\\College Name}
+\maketitle
+
+\tableofcontents
+\listoffigures
+\include{gensigchap}
+\include{propdft}
+\chapter{Experiment name}
+\section{OBJECTIVES}
+\begin{itemize}
+\item key points
+\end{itemize}
+\section{OBSERVATION}
+\subsection{Mention subtitle}
+\subsubsection{suntitle}
+\begin{lstlisting}[style={codelanguage-style}][caption=%code language%]
+%if you are providing any code fragments use this comand or else leave it 
+\end{lstlisting}
+\subsubsection{subtitile}  %for subtitle
+\subsection{Observations}
+\begin{figure}[htbp]
+\center
+\includegraphics[scale=0.30]{imagelocation address}   %to upload image also scale can vary with your needs 
+\caption{image caption}
+\end{figure}
+\end{document}
